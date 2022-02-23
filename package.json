@@ -1,62 +1,5 @@
 {
-  "private": false,
-  "name": "mod-ansible-autodoc",
-  "version": "1.0.0",
-  "description": "Generate documentation from comments in Ansible YML files",
-  "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
-  "homepage": "https://megabyte.space",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ProfessorManhattan/mod-ansible-autodoc.git"
-  },
-  "bugs": {
-    "email": "help@megabyte.space",
-    "url": "https://gitlab.com/megabyte-labs/python/cli/mod-ansible-autodoc/-/issues"
-  },
-  "type": "module",
-  "scripts": {
-    "build": "task python:build",
-    "help": "task --menu",
-    "prepare": "task common:husky",
-    "repair": "bash <(curl -sS https://install.doctor/repair)",
-    "start": "bash start.sh",
-    "test": "[[ -z $CI ]] && task python:test:pytest || task python:test:ci"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-emoji-conventional"
-    }
-  },
-  "dependencies": {},
-  "optionalDependencies": {},
-  "devDependencies": {
-    "@commitlint/config-conventional": "^16.0.0",
-    "@washingtondc/development": "latest",
-    "eslint-config-strict-mode": "latest",
-    "glob": "^7.2.0",
-    "handlebars-helpers": "^0.10.0",
-    "prettier-config-sexy-mode": "latest",
-    "semantic-release-config": "latest"
-  },
-  "keywords": [
-    "ansible",
-    "python",
-    "ansible-vault",
-    "vault",
-    "keyring",
-    "system",
-    "integration",
-    "ansible-playbook",
-    "password"
-  ],
-  "engines": {
-    "node": ">=14.18.0"
-  },
-  "publishConfig": {
-    "@megabyte:registry": "https://gitlab.com/api/v4/projects/25542337/packages/npm/",
-    "access": "public"
-  },
   "blueprint": {
     "binName": "ansible-keyring",
     "customPackageName": "ansible-keyring",
@@ -71,6 +14,10 @@
     "slug": "ansible-keyring",
     "subgroup": "cli",
     "title": "Ansible Keyring - A System Keyring Integration CLI"
+  },
+  "bugs": {
+    "email": "help@megabyte.space",
+    "url": "https://gitlab.com/megabyte-labs/python/cli/ansible-keyring/-/issues"
   },
   "changelog": {
     "displayTypes": [
@@ -88,6 +35,28 @@
     ],
     "helpUrl": "https://megabyte.space/docs/contributing/commits"
   },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/git-cz-emoji"
+    }
+  },
+  "dependencies": {},
+  "description": "A CLI that extends ansible, ansible-playbook, and ansible-vault to use the system keyring",
+  "devDependencies": {
+    "@commitlint/config-conventional": "^16.0.0",
+    "@washingtondc/development": "latest",
+    "cz-emoji-conventional": "^1.0.1",
+    "eslint-config-strict-mode": "latest",
+    "git-cz-emoji": "latest",
+    "glob": "^7.2.0",
+    "handlebars-helpers": "^0.10.0",
+    "prettier-config-sexy-mode": "latest",
+    "semantic-release-config": "latest",
+    "typescript": "^4.5.5"
+  },
+  "engines": {
+    "node": ">=14.18.0"
+  },
   "eslintConfig": {
     "extends": "eslint-config-strict-mode"
   },
@@ -101,42 +70,96 @@
       "url": "https://www.patreon.com/ProfessorManhattan"
     }
   ],
+  "homepage": "https://megabyte.space",
+  "keywords": [
+    "advanced",
+    "ansible",
+    "ansible-playbook",
+    "ansible-vault",
+    "bandit",
+    "beginner",
+    "boilerplate",
+    "cli",
+    "easy",
+    "gitlab-ci",
+    "integration",
+    "keyring",
+    "mblabs",
+    "megabytelabs",
+    "password",
+    "poetry",
+    "professormanhattan",
+    "pytest",
+    "python",
+    "system",
+    "vault",
+    "washingtondc"
+  ],
+  "license": "MIT",
   "lint-staged": {
+    "(Brewfile|composer.lock|Gemfile|Gopkg.lock|Pipfile.lock)": [
+      "task fix:prettier --"
+    ],
     "**/!(logo).(jpg|png)": [
       "task image:compress --"
     ],
     "**/*": [
       "task lint:any --"
     ],
-    "**/*.(css|html|less|md|mjml|php|scss|sh|xml)": [
+    "**/*.(bash|cfg|cgi|command|css|env|env.*|handlebars|hbs|html|less|fcgi|java|md|mdx|mjml|php|phtml|properties|reg|scss|tmpl|tmux|tool|tpl|zsh)": [
       "task fix:prettier --"
     ],
-    "**/*.(js|jsx|ts|tsx)": [
+    "**/*.(cjs|js|jsx|mjs|ts|tsx)": [
       "task fix:js --",
       "task lint:js --"
     ],
-    "**/*.json": [
+    "**/*.(json|webapp|webmanifest)": [
       "task fix:json --"
     ],
+    "**/*.(yml|yaml)": [
+      "task fix:yaml --",
+      "task lint:yaml --"
+    ],
+    "**/*.go": [
+      "task fix:go --",
+      "task lint:go --"
+    ],
+    "**/*.php": [
+      "task fix:php --",
+      "task lint:php --"
+    ],
+    "**/*.py": [
+      "task fix:python --",
+      "task lint:python --"
+    ],
     "**/*.sh": [
+      "task fix:prettier --",
+      "task fix:shell --",
       "task lint:shell --"
     ],
     "**/*.toml": [
+      "task fix:toml --",
+      "task fix:prettier --",
       "task lint:toml --"
     ],
     "**/*.xml": [
       "task fix:xml --",
       "task lint:xml --"
     ],
-    "**/*.yml": [
-      "task fix:yaml --",
-      "task lint:yaml --"
+    "Dockerfile": [
+      "task fix:prettier --",
+      "task lint:docker --"
+    ],
+    "Vagrantfile": [
+      "task fix:prettier --",
+      "task lint:vagrant"
     ],
     "logo.png": [
       "task image:resize -- 200 200",
       "task image:compress --"
     ]
   },
+  "name": "ansible-keyring",
   "ntl": {
     "descriptions": {
       "build": "Builds the project using the build command specified under scripts in package.json",
@@ -147,7 +170,33 @@
       "test": "Runs the appropriate test logic by running the test command defined under scripts in package.json"
     }
   },
+  "optionalDependencies": {},
+  "pnpm": {
+    "allowedVersions": {
+      "@typescript-eslint/eslint-plugin": "5",
+      "eslint": "8",
+      "typescript": "4"
+    },
+    "neverBuiltDependencies": [
+      "core-js",
+      "core-js-pure",
+      "highlight.js"
+    ],
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@typescript-eslint/eslint-plugin",
+        "eslint",
+        "prettier",
+        "typescript"
+      ]
+    }
+  },
   "prettier": "prettier-config-sexy-mode",
+  "private": false,
+  "publishConfig": {
+    "@megabyte:registry": "https://gitlab.com/api/v4/projects//packages/npm/",
+    "access": "public"
+  },
   "release": {
     "branches": [
       "main",
@@ -163,5 +212,19 @@
       }
     ],
     "extends": "semantic-release-config"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProfessorManhattan/ansible-keyring.git"
+  },
+  "scripts": {
+    "build": "task python:build",
+    "help": "task --menu",
+    "prepare": "npm run start && (test -f Taskfile.yml && task common:husky) || true",
+    "repair": "bash <(curl -sS https://install.doctor/repair)",
+    "start": "bash start.sh",
+    "test": "[[ -z $CI ]] && task python:test:pytest || task python:test:ci"
+  },
+  "type": "module",
+  "version": "1.0.0"
 }

@@ -1,29 +1,214 @@
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+
 [tool]
+
 [tool.poetry]
-name = "ansible-keyring"
-version = "0.3.0"
-description = "Keyring integration and local execution wrappers for Ansible"
-license = "MIT"
-keywords = ["ansible", "local", "keyring", "tools", "wrapper", "system"]
-classifiers = ["Development Status :: 4 - Beta", "Environment :: Console", "Intended Audience :: System Administrators", "License :: OSI Approved :: MIT License", "Programming Language :: Python :: 3", "Programming Language :: Python :: 3.5", "Programming Language :: Python :: 3.6", "Programming Language :: Python :: 3.7", "Programming Language :: Python :: 3.8", "Topic :: System :: Systems Administration"]
-homepage = "https://github.com/lvillani/ansible-tools"
-authors = ["Lorenzo Villani <lorenzo@villani.me>"]
-readme = "README.md"
-packages = [
-    { include = "ansible-keyring" }
+authors = ["Brian Zalewski <brian@megabyte.space>"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "Environment :: MacOS X",
+  "Environment :: Web Environment",
+  "Framework :: aiohttp",
+  "Framework :: Celery",
+  "Framework :: Flake8",
+  "Framework :: Pytest",
+  "Framework :: Sphinx :: Extension",
+  "Framework :: Sphinx :: Theme",
+  "Framework :: Sphinx",
+  "Intended Audience :: Developers",
+  "Intended Audience :: End Users/Desktop",
+  "Intended Audience :: System Administrators",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: English",
+  "Operating System :: MacOS :: MacOS X",
+  "Operating System :: MacOS",
+  "Operating System :: Microsoft :: Windows :: Windows 10",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: JavaScript",
+  "Programming Language :: Other Scripting Engines",
+  "Programming Language :: Other",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python",
+  "Programming Language :: Unix Shell",
+  "Topic :: Desktop Environment",
+  "Topic :: Documentation :: Sphinx",
+  "Topic :: Documentation",
+  "Topic :: Internet",
+  "Topic :: Software Development :: Build Tools",
+  "Topic :: Software Development :: Documentation",
+  "Topic :: Software Development :: Libraries",
+  "Topic :: Software Development",
+  "Topic :: System :: Installation/Setup",
+  "Topic :: Utilities"
 ]
+description = "A CLI that extends ansible, ansible-playbook, and ansible-vault to use the system keyring"
+documentation = "https://megabyte.space/docs/python/library"
+homepage = "https://megabyte.space"
+include = ["CHANGELOG.md", "LICENSE"]
+keywords = [
+  "advanced",
+  "ansible",
+  "ansible-playbook",
+  "ansible-vault",
+  "bandit",
+  "beginner",
+  "boilerplate",
+  "cli",
+  "easy",
+  "gitlab-ci",
+  "integration",
+  "keyring",
+  "mblabs",
+  "megabytelabs",
+  "password",
+  "poetry",
+  "professormanhattan",
+  "pytest",
+  "python",
+  "system",
+  "vault",
+  "washingtondc"
+]
+license = "MIT"
+name = "ansible-keyring"
+readme = "README.md"
+version = "1.0.0"
 
 [tool.poetry.dependencies]
-python = ">=3.10.0,<3.11"
 keyring = "^23.5.0"
 passlib = "^1.7.4"
+python = ">=3.10.0,<3.11"
+
+[tool.poetry.dependencies.aiohttp]
+optional = true
+version = "^3.7.4"
+
+[tool.poetry.dependencies.arrow]
+optional = true
+version = "^1.1.1"
+
+[tool.poetry.dependencies.better-exceptions]
+optional = true
+version = "^0.3.3"
+
+[tool.poetry.dependencies.celery]
+optional = true
+version = "^5.1.2"
+
+[tool.poetry.dependencies.click]
+optional = true
+version = "^8.0.3"
+
+[tool.poetry.dependencies.fire]
+optional = true
+version = "^0.4.0"
+
+[tool.poetry.dependencies.furl]
+optional = true
+version = "^2.1.2"
+
+[tool.poetry.dependencies.pip]
+optional = true
+version = "^21.3.0"
+
+[tool.poetry.dependencies.requests]
+optional = true
+version = "^2.26.0"
+
+[tool.poetry.dependencies.rich]
+optional = true
+version = "^10.9.0"
+
+[tool.poetry.dependencies.schedule]
+optional = true
+version = "^1.1.0"
+
+[tool.poetry.dependencies.schema]
+optional = true
+version = "^0.7.4"
+
+[tool.poetry.dependencies.setuptools]
+optional = true
+version = "^58.2.0"
+
+[tool.poetry.dependencies.sh]
+optional = true
+version = "^1.14.2"
+
+[tool.poetry.dependencies.sphinx]
+optional = true
+version = "^4.1.2"
+
+[tool.poetry.dependencies.sphinx-press-theme]
+optional = true
+version = "^0.8.0"
+
+[tool.poetry.dependencies.twine]
+optional = true
+version = "^3.8.0"
+
+[tool.poetry.dependencies.wheel]
+optional = true
+version = "^0.37.1"
+
+[tool.poetry.dev-dependencies]
+bandit = "^1.7.0"
+black = "^21.8b0"
+blocklint = "^0.2.3"
+flake8 = "^3.9.2"
+homebrew-pypi-poet = "^0.10.0"
+pre-commit-hooks = "^4.0.1"
+proselint = "^0.12.0"
+pyinstaller = "^4.6"
+pyinstrument = "^4.0.3"
+pylint = "^2.10.2"
+pysnooper = "^1.0.0"
+pytest = "^6.2.5"
+toml-sort = "^0.19.0"
+yamllint = "^1.26.3"
+
+[tool.poetry.extras]
+recommended = [
+  "aiohttp",
+  "arrow",
+  "better-exceptions",
+  "celery",
+  "click",
+  "fire",
+  "furl",
+  "requests",
+  "rich",
+  "schedule",
+  "schema",
+  "sh",
+  "sphinx",
+  "sphinx-press-theme"
+]
+semantic = ["pip", "setuptools", "twine", "wheel"]
+
+[[tool.poetry.packages]]
+include = "ansible-keyring"
 
 [tool.poetry.scripts]
-ansible-local = 'ansible-keyring.cli.ansible_local:main'
-ansible-mkpasswd = 'ansible-keyring.cli.ansible_mkpasswd:main'
-ansible-vault-helper = 'ansible-keyring.cli.ansible_vault_helper:main'
-vaultify = 'ansible-keyring.cli.vaultify:main'
+ansible-local = "ansible-keyring.cli.ansible_local:main"
+ansible-mkpasswd = "ansible-keyring.cli.ansible_mkpasswd:main"
+ansible-vault-helper = "ansible-keyring.cli.ansible_vault_helper:main"
+vaultify = "ansible-keyring.cli.vaultify:main"
 
-[build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
+[tool.poetry.urls]
+"Bug Tracker" = "https://gitlab.com/megabyte-labs/python/cli/ansible-keyring/-/issues"
+GitHub = "https://github.com/ProfessorManhattan/ansible-keyring"
+GitLab = "https://gitlab.com/megabyte-labs/python/cli/ansible-keyring"
+"Give Directly" = "https://givedirectly.org"
+"Open Collective" = "https://opencollective.com/megabytelabs"
+Patreon = "https://www.patreon.com/ProfessorManhattan"

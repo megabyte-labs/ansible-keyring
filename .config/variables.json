@@ -25,8 +25,42 @@
   "email": {
     "help": "help@megabyte.space"
   },
-  "emoji_beginnings": ["🚀 ", "🔥👉 ", "👉 ", "😉 ", "🆓 ", "🐴 ", "👀 ", "🎉 ", "", "", "", "", "", "", "", ""],
-  "emoji_endings": [" 🚀", " 🔥🔥🔥", " 👏", " 😉", " 🐙", " 🐴", " 👀", " 🎟", " 🎉🎉", "", "", "", "", "", "", ""],
+  "emoji_beginnings": [
+    "🚀 ",
+    "🔥👉 ",
+    "👉 ",
+    "😉 ",
+    "🆓 ",
+    "🐴 ",
+    "👀 ",
+    "🎉 ",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ],
+  "emoji_endings": [
+    " 🚀",
+    " 🔥🔥🔥",
+    " 👏",
+    " 😉",
+    " 🐙",
+    " 🐴",
+    " 👀",
+    " 🎟",
+    " 🎉🎉",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ],
   "github_prefix": "python-",
   "gitlab_pipelines": [
     {
@@ -50,6 +84,42 @@
   ],
   "gomodProxy": true,
   "group": "common",
+  "groups": {
+    "angular": [
+      "app",
+      "website"
+    ],
+    "ansible": [
+      "playbook",
+      "role"
+    ],
+    "docker": [
+      "ansible-molecule",
+      "app",
+      "ci-pipeline",
+      "codeclimate",
+      "software"
+    ],
+    "go": [
+      "cli",
+      "library"
+    ],
+    "npm": [
+      "app",
+      "cli",
+      "config",
+      "library",
+      "plugin"
+    ],
+    "packer": [
+      "desktop",
+      "server"
+    ],
+    "python": [
+      "cli",
+      "library"
+    ]
+  },
   "homebrew": {
     "folder": "Formula",
     "name": "homebrew-tap",
@@ -110,52 +180,6 @@
   },
   "redditApplicationId": "O3UxD7HlPpcN88gpEkPIXQ",
   "redditUsername": "tsgangster",
-  "releaseRules": [
-    {
-      "release": false,
-      "type": "build"
-    },
-    {
-      "release": false,
-      "type": "ci"
-    },
-    {
-      "release": false,
-      "type": "chore"
-    },
-    {
-      "release": false,
-      "type": "docs"
-    },
-    {
-      "release": "patch",
-      "type": "fix"
-    },
-    {
-      "release": "minor",
-      "type": "feat"
-    },
-    {
-      "release": "patch",
-      "type": "refactor"
-    },
-    {
-      "release": "patch",
-      "type": "revert"
-    },
-    {
-      "release": "patch",
-      "type": "perf"
-    },
-    {
-      "release": false,
-      "type": "style"
-    },
-    {
-      "release": false,
-      "type": "test"
-    }
-  ],
   "repository": {
     "github": "",
     "gitlab": "",
@@ -243,7 +267,7 @@
   },
   "scriptsBuild": "task python:build",
   "scriptsHelp": "task --menu",
-  "scriptsPrepare": "task common:husky",
+  "scriptsPrepare": "npm run start && (test -f Taskfile.yml && task common:husky) || true",
   "scriptsStart": "bash start.sh",
   "scriptsTest": "[[ -z $CI ]] && task python:test:pytest || task python:test:ci",
   "sharp_instructions": [],
