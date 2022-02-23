@@ -1,0 +1,126 @@
+---
+version: '3'
+
+tasks:
+  pip:
+    run: when_changed
+    log:
+      error: Failed to install pip3 package `{{.PACKAGE}}`
+      start: Installing pip3 package `{{.PACKAGE}}`
+      success: Installed pip3 package `{{.PACKAGE}}`
+    cmds:
+      - task: :install:software:python
+      - pip3 install {{.PACKAGE}}
+    status:
+      - type {{.PACKAGE}} > /dev/null
+
+  pipx:
+    deps:
+      - :install:software:pipx
+    run: when_changed
+    log:
+      error: Failed to install `{{.PACKAGE}}` with pipx
+      start: Installing `{{.PACKAGE}}` with pipx
+      success: Successfully installed `{{.PACKAGE}}` with pipx
+    cmds:
+      - pipx install {{.PACKAGE}}
+    status:
+      - type {{.PACKAGE}} > /dev/null
+
+  pytest:
+    run: once
+    cmds:
+      - task: pip
+        vars:
+          PACKAGE: pytest
+
+  pytest-cov:
+    run: once
+    cmds:
+      - task: pip
+        vars:
+          PACKAGE: pytest-cov
+
+  requirements:
+    run: once
+    cmds:
+      - task: :install:software:python
+      - task: requirements:poetry:prereqs
+      - task: requirements:poetry
+      - task: :{{if eq .REPOSITORY_TYPE "ansible"}}ansible:galaxy:requirements{{else}}donothing{{end}}
+
+  requirements:poetry:
+    summary: |
+      `poetry publish -r gitlab` will publish to GitLab registry on GitLab CI
+    run: once
+    log:
+      error: Failed to configure / install via `poetry`
+      start: Configuring Poetry and running `poetry install`
+      success: Successfully ran `poetry install`
+    cmds:
+      - task: :install:software:poetry
+      - poetry config virtualenvs.create {{if .PYTHON_VIRTUALENV}}{{.PYTHON_VIRTUALENV}}{{else}}false{{end}}
+      - poetry config virtualenvs.in-project true
+      - |
+        if [ -n "$PYPI_TOKEN" ]; then
+          poetry config pypi-token.pypi "$PYPI_TOKEN"
+        fi
+      - |
+        if [ -n "$GITLAB_CI" ]; then
+          poetry config repositories.gitlab "https://gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/pypi"
+          poetry config http-basic.gitlab gitlab-ci-token "${CI_JOB_TOKEN}"
+        fi
+      - |
+        if [ -n "$AUTO_UPDATE_PIP_PACKAGES" ]; then
+          poetry update{{if .INSTALL_OPTIONS}} {{.INSTALL_OPTIONS}}{{end}}
+        else
+          poetry install{{if .INSTALL_OPTIONS}} {{.INSTALL_OPTIONS}}{{end}}
+        fi
+    sources:
+      - pyproject.toml
+    preconditions:
+      - sh: test -f pyproject.toml
+        msg: The `pyproject.toml` file is missing!
+
+  requirements:poetry:prereqs:
+    vars:
+      GCC5_MISSING_MESSAGE: 'It looks like your system is missing gcc-5 but gcc is available. You might be prompted
+        for your sudo password to run the following command:'
+    log:
+      error: Error checking `gcc`
+      start: Checking if `gcc` should be symlinked to `gcc-5`
+      success: Checked `gcc`
+    cmds:
+      - |
+        if which gcc; then
+          if [ -w /usr/local/bin ]; then
+            ln -s "$(which gcc)" /usr/local/bin/gcc-5
+          else
+            .config/log info '{{.GCC5_MISSING_MESSAGE}}'
+            .config/log info '`sudo ln -s '"$(which gcc)"' /usr/local/bin/gcc-5`'
+            sudo ln -s "$(which gcc)" /usr/local/bin/gcc-5
+          fi
+        else
+          .config/log warn '`gcc` is missing.'
+        fi
+    status:
+      - which gcc-5
+
+  venv:node:
+    log:
+      error: Encountered error while setting up `venv` environment.. Is Python 3 installed?
+      start: Setting up a Python 3 `venv`
+      success: Finished setting up `venv`. Run `. venv/bin/activate` to load the environment into your shell.
+    cmds:
+      - task: :install:software:python
+      - |
+        REQUIREMENTS_PATH="$PWD/lib/requirements.txt"
+        cd "$INIT_CWD" || exit
+        if [ ! -f venv/bin/activate ]; then
+          python3 -m venv venv || exit 0
+        fi
+        . .venv/bin/activate || exit 0
+        pip3 install -U pip setuptools || exit 0
+        pip3 install -r "$REQUIREMENTS_PATH" || exit 0
+    sources:
+      - src/requirements.txt

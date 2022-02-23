@@ -1,0 +1,167 @@
+{
+  "private": false,
+  "name": "mod-ansible-autodoc",
+  "version": "1.0.0",
+  "description": "Generate documentation from comments in Ansible YML files",
+  "license": "MIT",
+  "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
+  "homepage": "https://megabyte.space",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProfessorManhattan/mod-ansible-autodoc.git"
+  },
+  "bugs": {
+    "email": "help@megabyte.space",
+    "url": "https://gitlab.com/megabyte-labs/python/cli/mod-ansible-autodoc/-/issues"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "task python:build",
+    "help": "task --menu",
+    "prepare": "task common:husky",
+    "repair": "bash <(curl -sS https://install.doctor/repair)",
+    "start": "bash start.sh",
+    "test": "[[ -z $CI ]] && task python:test:pytest || task python:test:ci"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-emoji-conventional"
+    }
+  },
+  "dependencies": {},
+  "optionalDependencies": {},
+  "devDependencies": {
+    "@commitlint/config-conventional": "^16.0.0",
+    "@washingtondc/development": "latest",
+    "eslint-config-strict-mode": "latest",
+    "glob": "^7.2.0",
+    "handlebars-helpers": "^0.10.0",
+    "prettier-config-sexy-mode": "latest",
+    "semantic-release-config": "latest"
+  },
+  "keywords": [
+    "ansible",
+    "python",
+    "ansible-vault",
+    "vault",
+    "keyring",
+    "system",
+    "integration",
+    "ansible-playbook",
+    "password"
+  ],
+  "engines": {
+    "node": ">=14.18.0"
+  },
+  "publishConfig": {
+    "@megabyte:registry": "https://gitlab.com/api/v4/projects/25542337/packages/npm/",
+    "access": "public"
+  },
+  "blueprint": {
+    "binName": "ansible-keyring",
+    "customPackageName": "ansible-keyring",
+    "description": "A CLI that extends ansible, ansible-playbook, and ansible-vault to use the system keyring",
+    "group": "python",
+    "name": "Ansible Keyring",
+    "overview": "This repository is home to **[ansible-keyring](https://github.com/ProfessorManhattan/ansible-keyring)** a CLI that extends the `ansible`, `ansible-playbook`, and `ansible-vault` command to retrieve the vault password from the system keyring. It is based on the work of [ansible-tools](https://pypi.org/project/ansible-tools/) with a couple usability improvements. The features it adds are:\n\n* Does not have to be run only in directories where `ansible.cfg` is present\n* New, shorter, more intuitive command aliases",
+    "repository": {
+      "github": "https://github.com/ProfessorManhattan/ansible-keyring",
+      "gitlab": "https://gitlab.com/megabyte-labs/python/cli/ansible-keyring"
+    },
+    "slug": "ansible-keyring",
+    "subgroup": "cli",
+    "title": "Ansible Keyring - A System Keyring Integration CLI"
+  },
+  "changelog": {
+    "displayTypes": [
+      "feat",
+      "fix",
+      "perf",
+      "refactor",
+      "revert"
+    ],
+    "showAuthor": true
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "helpUrl": "https://megabyte.space/docs/contributing/commits"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-strict-mode"
+  },
+  "funding": [
+    {
+      "type": "opencollective",
+      "url": "https://opencollective.com/megabytelabs"
+    },
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/ProfessorManhattan"
+    }
+  ],
+  "lint-staged": {
+    "**/!(logo).(jpg|png)": [
+      "task image:compress --"
+    ],
+    "**/*": [
+      "task lint:any --"
+    ],
+    "**/*.(css|html|less|md|mjml|php|scss|sh|xml)": [
+      "task fix:prettier --"
+    ],
+    "**/*.(js|jsx|ts|tsx)": [
+      "task fix:js --",
+      "task lint:js --"
+    ],
+    "**/*.json": [
+      "task fix:json --"
+    ],
+    "**/*.sh": [
+      "task lint:shell --"
+    ],
+    "**/*.toml": [
+      "task lint:toml --"
+    ],
+    "**/*.xml": [
+      "task fix:xml --",
+      "task lint:xml --"
+    ],
+    "**/*.yml": [
+      "task fix:yaml --",
+      "task lint:yaml --"
+    ],
+    "logo.png": [
+      "task image:resize -- 200 200",
+      "task image:compress --"
+    ]
+  },
+  "ntl": {
+    "descriptions": {
+      "build": "Builds the project using the build command specified under scripts in package.json",
+      "help": "Display the Bodega Taskfile.yml interactive help menu",
+      "prepare": "A hook triggered by running npm install that runs logic such as installing pre-commit hooks",
+      "repair": "Fixes basic issues in projects that are having trouble running basic commands like 'task start'",
+      "start": "Entrypoint for new developers that installs requirements and then runs 'task start'",
+      "test": "Runs the appropriate test logic by running the test command defined under scripts in package.json"
+    }
+  },
+  "prettier": "prettier-config-sexy-mode",
+  "release": {
+    "branches": [
+      "main",
+      "master",
+      "next",
+      {
+        "name": "beta",
+        "prerelease": true
+      },
+      {
+        "name": "alpha",
+        "prerelease": true
+      }
+    ],
+    "extends": "semantic-release-config"
+  }
+}

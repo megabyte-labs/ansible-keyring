@@ -1,0 +1,9 @@
+[tool.poetry.dependencies]
+keyring = "^23.5.0"
+passlib = "^1.7.4"
+
+[tool.poetry.scripts]
+ansible-local = 'ansible-keyring.cli.ansible_local:main'
+ansible-mkpasswd = 'ansible-keyring.cli.ansible_mkpasswd:main'
+ansible-vault-helper = 'ansible-keyring.cli.ansible_vault_helper:main'
+vaultify = 'ansible-keyring.cli.vaultify:main'
