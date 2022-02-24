@@ -76,7 +76,7 @@
   "blueprint": {
     "binName": "ansible-keyring",
     "customPackageName": "ansible-keyring",
-    "description": "A CLI that extends ansible, ansible-playbook, and ansible-vault to use the system keyring",
+    "description": "A CLI that extends ansible, ansible-playbook, and ansible-vault to use the system keyring for vault passwords",
     "github_id": "R_kgDOG5d3jg",
     "gitlab_group_id": "14289563",
     "gitlab_project_id": "33995299",
