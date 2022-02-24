@@ -1,8 +1,8 @@
 {
   "private": false,
   "name": "ansible-keyring",
-  "version": "1.0.0",
-  "description": "A CLI that extends ansible, ansible-playbook, and ansible-vault to use the system keyring",
+  "version": "1.1.0",
+  "description": "A CLI that extends ansible, ansible-playbook, and ansible-vault to use the system keyring for vault passwords",
   "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
   "homepage": "https://megabyte.space",
@@ -206,10 +206,8 @@
     ],
     "peerDependencyRules": {
       "ignoreMissing": [
-        "@typescript-eslint/eslint-plugin",
         "eslint",
-        "prettier",
-        "typescript"
+        "prettier"
       ]
     }
   },

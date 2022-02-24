@@ -51,7 +51,7 @@ classifiers = [
   "Topic :: System :: Installation/Setup",
   "Topic :: Utilities"
 ]
-description = "A CLI that extends ansible, ansible-playbook, and ansible-vault to use the system keyring"
+description = "A CLI that extends ansible, ansible-playbook, and ansible-vault to use the system keyring for vault passwords"
 documentation = "https://megabyte.space/docs/python/library"
 homepage = "https://megabyte.space"
 include = ["CHANGELOG.md", "LICENSE"]
@@ -82,7 +82,7 @@ keywords = [
 license = "MIT"
 name = "ansible-keyring"
 readme = "README.md"
-version = "1.0.0"
+version = "1.1.0"
 
 [tool.poetry.dependencies]
 keyring = "^23.5.0"
