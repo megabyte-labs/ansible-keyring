@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "ansible-keyring",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "A CLI that extends ansible, ansible-playbook, and ansible-vault to use the system keyring for vault passwords",
   "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
