@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "ansible-keyring",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "A CLI that extends ansible, ansible-playbook, and ansible-vault to use the system keyring for vault passwords",
   "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
@@ -28,8 +28,10 @@
       "path": "node_modules/git-cz-emoji"
     }
   },
+  "dependencies": {},
+  "optionalDependencies": {},
   "devDependencies": {
-    "@commitlint/config-conventional": "^16.2.1",
+    "@commitlint/config-conventional": "^16.0.0",
     "@washingtondc/development": "latest",
     "cz-emoji-conventional": "^1.0.1",
     "eslint-config-strict-mode": "latest",
