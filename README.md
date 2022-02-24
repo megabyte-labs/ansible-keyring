@@ -29,8 +29,8 @@
 </div>
 <br/>
 <div align="center">
-  <a title="Version: 1.1.0" href="https://github.com/ProfessorManhattan/ansible-keyring" target="_blank">
-    <img alt="Version: 1.1.0" src="https://img.shields.io/badge/version-1.1.0-blue.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACNJREFUCNdjIACY//+BEp9hhM3hAzYQwoBIAqEDYQrCZLwAAGlFKxU1nF9cAAAAAElFTkSuQmCC&cacheSeconds=2592000&style=flat-square" />
+  <a title="Version: 1.2.0" href="https://github.com/ProfessorManhattan/ansible-keyring" target="_blank">
+    <img alt="Version: 1.2.0" src="https://img.shields.io/badge/version-1.2.0-blue.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACNJREFUCNdjIACY//+BEp9hhM3hAzYQwoBIAqEDYQrCZLwAAGlFKxU1nF9cAAAAAElFTkSuQmCC&cacheSeconds=2592000&style=flat-square" />
   </a>
   <a title="Build status on GitLab" href="https://gitlab.com/megabyte-labs/python/cli/ansible-keyring/-/commits/master" target="_blank">
     <img alt="GitLab build status" src="https://img.shields.io/gitlab/pipeline-status/megabyte-labs/python/cli/ansible-keyring?branch=master&label=build&logo=gitlab&style=flat-square">
@@ -76,7 +76,7 @@
 
 ## Overview
 
-This repository is home to **[ansible-keyring](https://github.com/ProfessorManhattan/ansible-keyring)** a CLI that extends the `ansible`, `ansible-playbook`, and `ansible-vault` command to retrieve the vault password from the system keyring. It is based on the work of [ansible-tools](https://pypi.org/project/ansible-tools/) with a couple usability improvements. The features it adds are:
+This repository is home to **[ansible-keyring](https://github.com/ProfessorManhattan/ansible-keyring)** a CLI that extends the `ansible`, `ansible-playbook`, and `ansible-vault` command to retrieve vault passwords from the system keyring. It is based on the work of [ansible-tools](https://pypi.org/project/ansible-tools/) with a couple usability improvements. The features it adds are:
 
 - Does not have to be run only in directories where `ansible.cfg` is present
 - New, shorter, more intuitive command aliases
