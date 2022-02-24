@@ -28,10 +28,8 @@
       "path": "node_modules/git-cz-emoji"
     }
   },
-  "dependencies": {},
-  "optionalDependencies": {},
   "devDependencies": {
-    "@commitlint/config-conventional": "^16.0.0",
+    "@commitlint/config-conventional": "^16.2.1",
     "@washingtondc/development": "latest",
     "cz-emoji-conventional": "^1.0.1",
     "eslint-config-strict-mode": "latest",
