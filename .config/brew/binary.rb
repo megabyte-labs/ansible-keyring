@@ -1,8 +1,8 @@
 class AnsibleKeyring < Formula
   desc "A CLI that extends ansible, ansible-playbook, and ansible-vault to use the system keyring for vault passwords"
   homepage "https://megabyte.space"
-  url "https://github.com/ProfessorManhattan/ansible-keyring/releases/download/v1.2.5/ansible-keyring.tar.gz"
-  version "1.2.5"
+  url "https://github.com/ProfessorManhattan/ansible-keyring/releases/download/v1.2.6/ansible-keyring.tar.gz"
+  version "1.2.6"
   license "MIT"
 
   
