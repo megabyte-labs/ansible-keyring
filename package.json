@@ -89,7 +89,7 @@
     "name": "Ansible Keyring",
     "overview": "This repository is home to **[ansible-keyring](https://github.com/ProfessorManhattan/ansible-keyring)** a CLI that extends the `ansible`, `ansible-playbook`, and `ansible-vault` command to retrieve vault passwords from the system keyring. It is based on the work of [ansible-tools](https://pypi.org/project/ansible-tools/) with a couple usability improvements. The features it adds are:\n\n* Does not have to be run only in directories where `ansible.cfg` is present\n* New, shorter, more intuitive command aliases",
     "repository": {
-      "github": "https://github.com/ProfessorManhattan/ansible-keyring",
+      "github": "https://github.com/megabyte-labs/ansible-keyring",
       "gitlab": "https://gitlab.com/megabyte-labs/python/cli/ansible-keyring"
     },
     "slug": "ansible-keyring",
