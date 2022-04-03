@@ -1,6 +1,6 @@
 <!-- ⚠️ This README has been generated from the file(s) ".config/docs/blueprint-readme-cli.md" ⚠️--><div align="center">
   <center>
-    <a href="https://github.com/ProfessorManhattan/ansible-keyring">
+    <a href="https://github.com/megabyte-labs/ansible-keyring">
       <img width="148" height="148" alt="Ansible Keyring logo" src="https://gitlab.com/megabyte-labs/python/cli/ansible-keyring/-/raw/master/logo.png" />
     </a>
   </center>
@@ -14,13 +14,13 @@
   <a href="https://megabyte.space" title="Megabyte Labs homepage" target="_blank">
     <img alt="Homepage" src="https://img.shields.io/website?down_color=%23FF4136&down_message=Down&label=Homepage&logo=home-assistant&logoColor=white&up_color=%232ECC40&up_message=Up&url=https%3A%2F%2Fmegabyte.space&style=for-the-badge" />
   </a>
-  <a href="https://github.com/ProfessorManhattan/ansible-keyring/blob/master/docs/CONTRIBUTING.md" title="Learn about contributing" target="_blank">
+  <a href="https://github.com/megabyte-labs/ansible-keyring/blob/master/docs/CONTRIBUTING.md" title="Learn about contributing" target="_blank">
     <img alt="Contributing" src="https://img.shields.io/badge/Contributing-Guide-0074D9?logo=github-sponsors&logoColor=white&style=for-the-badge" />
   </a>
   <a href="https://app.slack.com/client/T01ABCG4NK1/C01NN74H0LW/details/" title="Chat with us on Slack" target="_blank">
     <img alt="Slack" src="https://img.shields.io/badge/Slack-Chat-e01e5a?logo=slack&logoColor=white&style=for-the-badge" />
   </a>
-  <a href="https://github.com/ProfessorManhattan/ansible-keyring" title="GitHub mirror" target="_blank">
+  <a href="https://github.com/megabyte-labs/ansible-keyring" title="GitHub mirror" target="_blank">
     <img alt="GitHub" src="https://img.shields.io/badge/Mirror-GitHub-333333?logo=github&style=for-the-badge" />
   </a>
   <a href="https://gitlab.com/megabyte-labs/python/cli/ansible-keyring" title="GitLab repository" target="_blank">
@@ -29,7 +29,7 @@
 </div>
 <br/>
 <div align="center">
-  <a title="Version: 1.2.7" href="https://github.com/ProfessorManhattan/ansible-keyring" target="_blank">
+  <a title="Version: 1.2.7" href="https://github.com/megabyte-labs/ansible-keyring" target="_blank">
     <img alt="Version: 1.2.7" src="https://img.shields.io/badge/version-1.2.7-blue.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACNJREFUCNdjIACY//+BEp9hhM3hAzYQwoBIAqEDYQrCZLwAAGlFKxU1nF9cAAAAAElFTkSuQmCC&cacheSeconds=2592000&style=flat-square" />
   </a>
   <a title="Build status on GitLab" href="https://gitlab.com/megabyte-labs/python/cli/ansible-keyring/-/commits/master" target="_blank">
@@ -47,7 +47,7 @@
   <a title="PyPi status" href="https://pypi.org/project/{{(if customPyPiPackageName customPyPiPackageName (append repository.prefix.github slug))}}/" target="_blank">
     <img alt="Status" src="https://img.shields.io/pypi/status/{{(if customPyPiPackageName customPyPiPackageName (append repository.prefix.github slug))}}/?label=status&logo=pypi&style=flat-square">
   </a>
-  <a title="License: MIT" href="https://github.com/ProfessorManhattan/ansible-keyring/blob/master/LICENSE" target="_blank">
+  <a title="License: MIT" href="https://github.com/megabyte-labs/ansible-keyring/blob/master/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-yellow.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAHpJREFUCNdjYOD/wMDAUP+PgYHxhzwDA/MB5gMM7AwMDxj4GBgKGGQYGCyAEEgbMDDwAAWAwmk8958xpIOI5zKH2RmOyhxmZjguAiKmgIgtQOIYmFgCIp4AlaQ9OczGkJYCJEAGgI0CGwo2HmwR2Eqw5SBnNIAdBHYaAJb6KLM15W/CAAAAAElFTkSuQmCC&style=flat-square" />
   </a>
 </div>
@@ -135,7 +135,7 @@ choco install {{(if customPyPiPackageName customPyPiPackageName (append reposito
 
 ### Binary Releases
 
-There are also binaries (in various formats) available for download on both [GitHub](https://github.com/ProfessorManhattan/ansible-keyring/releases) and [GitLab](https://gitlab.com/megabyte-labs/python/cli/ansible-keyring/-/releases).
+There are also binaries (in various formats) available for download on both [GitHub](https://github.com/megabyte-labs/ansible-keyring/releases) and [GitLab](https://gitlab.com/megabyte-labs/python/cli/ansible-keyring/-/releases).
 
 <a href="#requirements" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
 
@@ -155,7 +155,7 @@ task --list
 
 ## Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/ProfessorManhattan/ansible-keyring/issues). If you would like to contribute, please take a look at the [contributing guide](https://github.com/ProfessorManhattan/ansible-keyring/blob/master/docs/CONTRIBUTING.md).
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/megabyte-labs/ansible-keyring/issues). If you would like to contribute, please take a look at the [contributing guide](https://github.com/megabyte-labs/ansible-keyring/blob/master/docs/CONTRIBUTING.md).
 
 <details>
 <summary><b>Sponsorship</b></summary>
