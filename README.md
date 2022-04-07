@@ -62,6 +62,7 @@
 ## Table of Contents
 
 - [Overview](#overview)
+- [This Repository (Shared Common)](#this-repository-shared-common)
 - [Installation](#installation)
   - [PyPi](#pypi)
   - [Install Doctor](#install-doctor)
@@ -81,7 +82,11 @@ This repository is home to **[ansible-keyring](https://github.com/ProfessorManha
 - Does not have to be run only in directories where `ansible.cfg` is present
 - New, shorter, more intuitive command aliases
 
-{{ load:docs/partials/guide.md }}
+<a href="#this-repository-shared-common" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
+
+## This Repository (Shared Common)
+
+This repository houses files that propagate downstream to project-specific repositories.
 
 <a href="#installation" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
 
