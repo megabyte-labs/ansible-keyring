@@ -10,7 +10,7 @@ class AnsibleKeyring < Formula
   def install
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
-    bin.install "build/bin/ansible-keyring-#{os}_#{arch}" => "ansible-keyring"
+    bin.install "build/ansible-keyring-#{os}_#{arch}" => "ansible-keyring"
   done
 
   test do
