@@ -1,3 +1,4 @@
+# @binaryBrew [AnsibleKeyring](https://github.com/megabyte-labs/ansible-keyring) - A CLI that extends ansible, ansible-playbook, and ansible-vault to use the system keyring for vault passwords
 class AnsibleKeyring < Formula
   desc "A CLI that extends ansible, ansible-playbook, and ansible-vault to use the system keyring for vault passwords"
   homepage "https://megabyte.space"
